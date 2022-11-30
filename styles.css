@@ -1,7 +1,8 @@
 html {
     background-image: url("./assets/fire.gif");
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-position: center center;
+    background-color: black;
 }
 
 .vertical-center {
@@ -23,6 +24,82 @@ html {
     width: 80vw;
 }
 
+.cube-container {
+    width: 100%;
+    display: flex;
+    margin-top: 32px;
+    margin-bottom: 31px;
+}
+
+.title-container {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 42px;
+    transition-duration: 1s;
+    -webkit-background-clip: text;
+    animation: color-change 5s infinite;
+}
+
+.title-container:hover {
+    /*letter-spacing: 10px;*/
+    cursor: default;
+  } 
+
+.title-text {
+    backdrop-filter: blur(5px);
+}
+
+.wadcube {
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    width: 300px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgb(133,133,133);
+background: linear-gradient(0deg, rgba(133,133,133,1) 0%, rgba(233,189,238,1) 52%, rgba(224,224,224,1) 100%);
+    width: 478px;
+    height: 35px;
+}
+
+.construction {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 430px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+  @keyframes color-change {
+    0% { color: red; }
+    25% { color: blue; }
+    50% { color: green; }
+    75% { color: purple; }
+    100% { color: red; }
+  }
+
 @media screen and (max-width: 850px) {
     .boys {
         display: flex;
@@ -35,4 +112,15 @@ html {
         height: 33%;
         width: auto;
     }
+
+    .nav {
+        position: relative;
+        left: -8px;
+        width: 100vw;
+    }
+
+    .construction {
+    
+    }
+    
 }
