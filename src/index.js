@@ -1,4 +1,4 @@
-import { asciiAssets } from "../assets/ascii-assets/ascii-assets.js";
+import { asciiAssets } from "./assets/ascii.js";
 
 
 // Class to insert ASCII art into HTML pages

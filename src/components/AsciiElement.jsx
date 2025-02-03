@@ -1,7 +1,9 @@
 import React from 'react';
-import { asciiAssets } from "../../assets/ascii-assets/ascii-assets.js";
+import { asciiAssets } from "../assets/ascii.js";
+// import styles from '../styles/AsciiElement.module.css';
+// import styles from '/src/styles/LogoOverlay.module.css';
 
-function AsciiElement({ asset }) {
+function AsciiElement({ asset, style }) {
     
     if (!asciiAssets[asset]) {
         console.error(`ASCII art "${asset}" not found`);
@@ -9,7 +11,7 @@ function AsciiElement({ asset }) {
     }
     console.log(`Asset name: ${asset}`);
     return (
-        <pre>{asciiAssets[asset]}</pre>
+        <pre className={style.asciiArt}>{asciiAssets[asset]}</pre>
     );
 }
 
