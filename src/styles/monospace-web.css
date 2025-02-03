@@ -1,7 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/jetbrains-mono-2');
 
 :root {
-  --font-family: "JetBrains Mono", monospace;
+  --font-family: monospace;
   --line-height: 1.20rem;
   --border-thickness: 2px;
   --text-color: #000;
@@ -35,9 +35,9 @@
 }
 
 
-* + * {
+/* * + * {
   margin-top: var(--line-height);
-}
+} */
 
 html {
   display: flex;
@@ -71,8 +71,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-weight-bold);
-  margin: calc(var(--line-height) * 2) 0 var(--line-height);
+  /* margin: calc(var(--line-height) * 2) 0 var(--line-height); */
   line-height: var(--line-height);
+  align-self: center;
 }
 
 h1 {

@@ -11,7 +11,7 @@ function AsciiElement({ asset, style }) {
     }
     console.log(`Asset name: ${asset}`);
     return (
-        <pre className={style.asciiArt}>{asciiAssets[asset]}</pre>
+        <pre className={style}>{asciiAssets[asset]}</pre>
     );
 }
 

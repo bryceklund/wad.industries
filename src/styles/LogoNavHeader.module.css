@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 50vh;
+    max-height: 61vh;
+    width: 100%;
+}
+
+.logoContainer {
+    width: 100%;
+    max-width: var(--logo-width);
+    margin: 0 auto;
+}

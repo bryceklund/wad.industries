@@ -17,12 +17,12 @@
 
 .asciiArt {
     font-family: monospace;
-    font-size: 6.8px; /* Adjust as needed */
+    font-size: 7px; /* Adjust as needed */
     white-space: pre;
     line-height: 1.25;
     position: absolute;
-    top: 48%;
-    left: 70%;
+    top: 50%;
+    left: 57%;
     transform: translate(-50%, -50%);
     /* background: transparent; */
     /* display: none; */
@@ -67,13 +67,13 @@
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  animation: colorShift 5s infinite ease-in-out; */
-
+  animation: colorShift 5s infinite ease-in-out;
+/* 
   animation: matrixFlicker 1.3s infinite step-end,
              matrixGlow 10s infinite ease-in-out,
              glitchSkew 2s infinite linear,
              matrixFlicker 1.3s infinite step-end,
-             glitchSkew1 2s infinite linear;
+             glitchSkew1 2s infinite linear; */
              /*glitchSkew2 2s infinite linear,
              glitchSkew3 2s infinite linear; */
       

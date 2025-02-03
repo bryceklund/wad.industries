@@ -7,7 +7,7 @@ function CubeContainer() {
           <span class="title-text">WAD INDUSTRIES</span><br />
           <span class="title-text">PRESENTS NEW CONTENT</span><br />
         </div>
-        <img class="wadcube" src="./assets/wadcube.blend.v3.gif" />
+        <img class="wadcube" src="../assets/wadcube.blend.v3.gif" />
       </div>
     );
 }

@@ -2,10 +2,28 @@
     position: relative;
     text-align: center;
     color: white;
+    isolation: isolate;
+    width: 100%;
+    overflow: hidden;
 }
 
-.container > {
-    width: 100%;
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.asciiWrapper {
+  position: absolute;
+  inset: 0;
 }
 
 .center {
@@ -29,11 +47,11 @@
 
 .asciiArt {
     font-family: monospace;
-    font-size: 4px; /* Adjust as needed */
+    font-size: 3.05px; /* Adjust as needed */
     white-space: pre;
     line-height: 1.0;
     position: absolute;
-    top: 48%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     /* background: transparent; */
@@ -81,13 +99,16 @@
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   animation: colorShift 5s infinite ease-in-out; */
 
-  animation: matrixFlicker 1.3s infinite step-end,
+  animation: matrixFlicker 1.3s infinite ease,
              matrixGlow 10s infinite ease-in-out,
              glitchSkew 2s infinite linear,
+             matrixFlicker 1s infinite ease,
              matrixFlicker 1.3s infinite step-end,
-             glitchSkew1 2s infinite linear;
-             /*glitchSkew2 2s infinite linear,
-             glitchSkew3 2s infinite linear; */
+             glitchSkew1 2s infinite linear,
+             matrixFlicker 1.3s infinite step-end,
+             glitchSkew2 4s infinite linear,
+             matrixFlicker 1.3s infinite step-end,
+             glitchSkew3 3s infinite linear;
       
     }
 
@@ -106,35 +127,45 @@
   @keyframes glitchSkew1 {
     19% { transform: translate(-50%, -50%) skew(0deg); }
     20% { transform: translate(-50%, -50%) skew(30deg); }
-    21% { transform: translate(-50%, -50%) skew(1.5deg); }
+    21% { transform: translate(-50%, -50%) skew(-1.5deg); }
     25% { transform: translate(-50%, -50%) skew(0deg); }
     80% { transform: translate(-50%, -50%) skew(0deg); }
-    83% { transform: translate(-50%, -50%) skew(20deg); }
+    83% { transform: translate(-50%, -50%) skew(-20deg); }
     84% { transform: translate(-50%, -50%) skew(0deg); }
     100% { transform: translate(-50%, -50%) skew(0deg); }
   }
   
   @keyframes glitchSkew2 {
     0% { transform: translate(-50%, -50%) skew(0deg); }
-    25% { transform: translate(-50%, -50%) skew(-2deg); }
-    75% { transform: translate(-50%, -50%) skew(1deg); }
-    100% { transform: translate(-50%, -50%) skew(0deg); }
+    1% { transform: translate(-50%, -50%) skew(-40deg); }
+    2% { transform: translate(-50%, -50%) skew(1deg); }
+    4% { transform: translate(-50%, -50%) skew(0deg); }
+    4% { transform: translate(-50%, -50%) skew(0deg); }
+    4% { transform: translate(-50%, -50%) skew(0deg); }
+    41% { transform: translate(-50%, -50%) skew(0deg); }
+    42% { transform: translate(-50%, -50%) skew(10deg); }
+    43% { transform: translate(-50%, -50%) skew(0deg); }
   }
   
   @keyframes glitchSkew3 {
-    0% { transform: translate(-50%, -50%) skew(0deg); }
-    20% { transform: translate(-50%, -50%) skew(1.5deg); }
-    40% { transform: translate(-50%, -50%) skew(-1.5deg); }
-    60% { transform: translate(-50%, -50%) skew(1deg); }
-    80% { transform: translate(-50%, -50%) skew(-1deg); }
+    19% { transform: translate(-50%, -50%) skew(0deg); }
+    20% { transform: translate(-50%, -50%) skew(30deg); }
+    21% { transform: translate(-50%, -50%) skew(-1.5deg); }
+    22% { transform: translate(-50%, -50%) skew(0deg); }
+    80% { transform: translate(-50%, -50%) skew(0deg); }
+    81% { transform: translate(-50%, -50%) skew(-20deg); }
+    82% { transform: translate(-50%, -50%) skew(0deg); }
     100% { transform: translate(-50%, -50%) skew(0deg); }
   }
 
     @keyframes matrixFlicker {
-        0% { opacity: 1; }
+        0% { opacity: 0; }
+        1% { opacity: 1; }
+        2% { opacity: .2; }
+        5% { opacity: .7; }
         95% { opacity: 1; }
         96% { opacity: .3; }
-        97% { opacity: 0.2; }
+        97% { opacity: 1; }
         98% { opacity: 0.1; }
         100% { opacity: 1; }
       }

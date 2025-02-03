@@ -1,23 +1,3 @@
-import { asciiAssets } from "./assets/ascii.js";
-
-
-// Class to insert ASCII art into HTML pages
-class AsciiElement extends HTMLElement {
-  constructor() {
-    super();
-  }
-
-  connectedCallback() {
-    const assetName = this.getAttribute('asset');
-    if (assetName && asciiAssets[assetName]) {
-      this.innerHTML = `<pre>${asciiAssets[assetName]}`;
-    }
-  }
-}
-
-// Registration of custom elements
-customElements.define('ascii-element', AsciiElement);
-
 function gridCellDimensions() {
   const element = document.createElement("div");
   element.style.position = "fixed";
