@@ -1,13 +1,14 @@
 // src/components/LogoOverlayGrid.jsx
 import { GridAlignedOverlay } from './GridAlignedMedia';
 import AsciiElement from './AsciiElement';
-import styles from '/src/styles/LogoOverlayGrid.module.css';
+import styles from '../styles/LogoOverlayGrid.module.css';
+import logoGlow from '../assets/logo-glow.png';
 
 function LogoOverlayGrid() {
   return (
     <div className={styles.container}>
       <GridAlignedOverlay
-        imageSrc="/src/assets/logo-glow.png"
+        imageSrc={logoGlow}
         imageAlt="Wad Industries Logo"
         className={styles.imageWrapper}
       >
