@@ -1,6 +1,6 @@
 // src/components/LogoOverlayGrid.jsx
 import { GridAlignedOverlay } from './GridAlignedMedia';
-import AsciiElement from './AsciiElement';
+import AsciiElement from '../src/components/AsciiElement';
 import styles from '../styles/LogoOverlayGrid.module.css';
 import logoGlow from '../assets/logo-glow.png';
 

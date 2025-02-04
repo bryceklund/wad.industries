@@ -1,10 +1,36 @@
 :root {
-    /* Base grid settings */
-    --line-height: 3pt;
-    --ascii-size: 3pt;
-    
-    /* Logo specific scaling */
-    --logo-scale: 1;  /* Adjust this to scale the entire logo up/down */
-    --logo-width: calc(400px * var(--logo-scale));
-    --logo-height: calc(225px * var(--logo-scale)); /* 16:9 aspect ratio */
-  }
+  /* Base grid settings */
+  --line-height: 3pt;
+  /* --ascii-size: 3pt; */
+
+  /* 16:9 aspect ratio */
+
+  /* Typography */
+  --font-family: 'JetBrains Mono', monospace;
+
+  --border-thickness: 2px;
+
+  /* Colors */
+  --text-color: #747bff;
+  --text-color-alt: #666;
+  --background-color-alt: #eee;
+
+  /* Font weights */
+  --font-weight-normal: 500;
+  --font-weight-medium: 600;
+  --font-weight-bold: 800;
+
+  /* Logo specific scaling */
+  --logo-scale: clamp(0.7, 0.7 + 0.3 * (100vw - 375px) / (700 - 375), 1);
+  /* --logo-width: calc(400px * var(--logo-scale));
+  --logo-height: calc(225px * var(--logo-scale));
+  
+  --h1-size: clamp(2rem, 8vw, 4rem);
+  /* For your "III" */
+  --h2-size: clamp(1rem, 4vw, 1.5rem);
+  /* For "WAD INDUSTRIES PRESENTS" */
+  --h3-size: clamp(1rem, 3vw, 1.25rem);
+  /* For the date */
+  --nav-size: clamp(0.875rem, 2vw, 1rem);
+  /* For navigation */
+}

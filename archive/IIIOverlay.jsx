@@ -1,4 +1,4 @@
-import AsciiElement from './AsciiElement';
+import AsciiElement from '../src/components/AsciiElement';
 import styles from '/src/styles/IIIOverlay.module.css';
 
 function IIIOverlay() {

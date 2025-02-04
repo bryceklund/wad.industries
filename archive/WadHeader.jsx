@@ -1,10 +1,10 @@
 import React from 'react';
-import AsciiElement from './AsciiElement';
-import Nav from './Nav';
+import AsciiElement from '../src/components/AsciiElement';
+import Nav from '../src/components/Nav';
 
 const WadHeader = () => {
   return (
-    <div className="relative w-full min-h-screen bg-black flex flex-col items-center">
+    <div className="relative w-full min-h-screen flex flex-col items-center">
       {/* Title */}
       <div className="text-white mt-16 mb-8">
         <span className="block text-xl">WAD INDUSTRIES</span>
