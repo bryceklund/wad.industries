@@ -10,14 +10,14 @@ const NAV_LINKS = [
 
 function Nav() {
   return (
-    <nav className="flex flex-wrap justify-center gap-8 w-full sm:gap-12 py-2 mt-6 font-mono">
+    <nav className="flex flex-wrap justify-center gap-x-4 gap-y-4 w-full sm:gap-8 py-0 mt-6 font-mono">
       {NAV_LINKS.map(([name, url]) => (
         <a
           key={name}
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-[#a374ff] transition-colors duration-300 tracking-wide no-underline"
+          className="text-gray-1000 hover:text-[#a374ff] transition-colors duration-300 tracking-wide no-underline leading-tight before:content-['\['] before:opacity-10 after:content-['\]'] after:opacity-10"
           style={{ fontSize: 'var(--nav-size)' }}
         >
           {name}

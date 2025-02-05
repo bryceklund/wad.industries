@@ -1,13 +1,13 @@
 .container {
-  --ascii-font-size: calc(2.35 * var(--logo-scale) * 1px);
-  --ascii-line-height: calc(2.38 * var(--logo-scale) * 1px);
-  /* Base the ASCII size on the container width */
-  /* --ascii-font-size: calc(0.003 * var(--logo-base-width) * var(--logo-scale));
-  --ascii-line-height: calc(var(--ascii-font-size) * 0.01); */
-  /* Slightly larger than font size */
-  width: calc(var(--logo-base-width) * var(--logo-scale));
-  height: calc(var(--logo-base-height) * var(--logo-scale));
+  /* Constrain container to logo dimensions */
+  /* width: 100%; */
+  max-width: var(--logo-width);
+  aspect-ratio: 16/9;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
   cursor: default;
+  /* Prevent any overflow */
 }
 
 .logoImage {
@@ -21,9 +21,10 @@
 .wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 100%;
+  /* aspect-ratio: 16/9; */
   isolation: isolate;
-  overflow: hidden;
+  /* overflow: hidden; */
 
   /* robot suggestion */
   transition: filter 0.3s ease-out, transform 0.3s ease-out;
@@ -131,8 +132,9 @@
 
 .asciiArt {
   font-family: monospace;
-  font-size: var(--ascii-font-size);
-  line-height: var(--ascii-line-height);
+  font-size: calc(var(--logo-width) * 0.005);
+  /* line-height: var(--ascii-line-height); */
+  line-height: 1;
   white-space: pre;
   font-weight: lighter;
   color: white;

@@ -40,7 +40,7 @@ const GlitchLogo = ({ className = '', ...props }) => {
 
     return (
         <div
-            className={`${styles.container} ${className}`}
+            className={`select-none ${styles.container} ${className}`}
             style={{
                 // '--logo-scale': scale,
                 '--logo-base-width': `${dimensions.width}px`,

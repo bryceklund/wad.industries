@@ -125,6 +125,11 @@ p {
     animation: textGlitch .1s infinite;
   }
 
+  nav > a:active {
+    color: #d02a14;
+    animation: none;
+  }
+
   button {
     background-color: #f9f9f9;
   }

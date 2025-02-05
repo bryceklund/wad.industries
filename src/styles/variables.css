@@ -1,47 +1,42 @@
 :root {
-  /* Base grid settings */
-  --line-height: 3pt;
-  --ascii-size: 3pt;
-
-  /* 16:9 aspect ratio */
-
-  /* Typography */
-  --font-family: 'JetBrains Mono', monospace;
-
-  --border-thickness: 2px;
-
-  /* Colors */
-  --text-color: #747bff;
-  --text-color-alt: #666;
-  --background-color-alt: #eee;
-
-  /* Font weights */
-  --font-weight-normal: 500;
-  --font-weight-medium: 600;
-  --font-weight-bold: 800;
-
-  /* Base scaling factor based on viewport width */
-  /* --vw-scale: clamp(0.7, calc(0.7 + 0.3 * (100vw - 375px) / (700 - 375)), 1); */
-  --vw-scale: clamp(0.7, 1, 1);
-
-  /* Logo scaling that maintains aspect ratio */
-  --logo-scale: var(--vw-scale);
-  --base-logo-width: 400;
-  --base-logo-height: 225;
-  --logo-width: calc(var(--base-logo-width) * var(--logo-scale) * 1px);
-  --logo-height: calc(var(--base-logo-height) * var(--logo-scale) * 1px);
-
-  /* Logo specific scaling */
-  /* --logo-scale: clamp(0.7, 0.7 + 0.3 * (100vw - 375px) / (700 - 375), 1);
-  --logo-width: calc(400px * var(--logo-scale));
-  --logo-height: calc(225px * var(--logo-scale)); */
-
+  /* Typography scale */
   --h1-size: clamp(2rem, 8vw, 4rem);
-  /* For your "III" */
+  /* III */
   --h2-size: clamp(1rem, 4vw, 1.5rem);
-  /* For "WAD INDUSTRIES PRESENTS" */
+  /* WAD INDUSTRIES PRESENTS */
   --h3-size: clamp(1rem, 3vw, 1.25rem);
-  /* For the date */
+  /* Date */
   --nav-size: clamp(0.875rem, 2vw, 1rem);
-  /* For navigation */
+  /* Navigation */
+
+  /* Default logo size */
+  --logo-width: 350px;
+}
+
+/* Mobile - 320px */
+@media screen and (min-width: 320px) {
+  :root {
+    --logo-width: 255px;
+  }
+}
+
+/* Small tablets - 400px */
+@media screen and (min-width: 400px) {
+  :root {
+    --logo-width: 350px;
+  }
+}
+
+/* Tablets - 768px */
+@media screen and (min-width: 768px) {
+  :root {
+    --logo-width: 545px;
+  }
+}
+
+/* Desktop - 1024px */
+@media screen and (min-width: 1024px) {
+  :root {
+    --logo-width: 540px;
+  }
 }
