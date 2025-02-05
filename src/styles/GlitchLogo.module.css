@@ -1,18 +1,14 @@
 .container {
   --ascii-font-size: calc(2.35 * var(--logo-scale) * 1px);
   --ascii-line-height: calc(2.38 * var(--logo-scale) * 1px);
+  /* Base the ASCII size on the container width */
+  /* --ascii-font-size: calc(0.003 * var(--logo-base-width) * var(--logo-scale));
+  --ascii-line-height: calc(var(--ascii-font-size) * 0.01); */
+  /* Slightly larger than font size */
   width: calc(var(--logo-base-width) * var(--logo-scale));
   height: calc(var(--logo-base-height) * var(--logo-scale));
   cursor: default;
 }
-
-.container::after {
-  content: "Font size: " var(--ascii-font-size) " | Line height: " var(--ascii-line-height);
-  display: block;
-  font-size: 12px;
-  color: red;
-}
-
 
 .logoImage {
   position: absolute;
@@ -128,8 +124,8 @@
   display: grid;
   place-items: center;
   mix-blend-mode: screen;
-  font-size: var(--ascii-font-size);
-  line-height: var(--ascii-line-height);
+  /* font-size: var(--ascii-font-size);
+  line-height: var(--ascii-line-height); */
 
 }
 
@@ -140,6 +136,9 @@
   white-space: pre;
   font-weight: lighter;
   color: white;
+  transform-origin: center;
+  /* Ensure smooth scaling */
+  transition: font-size 0.3s ease-out, line-height 0.3s ease-out;
   animation: glitch 4s ease-in-out infinite;
 }
 

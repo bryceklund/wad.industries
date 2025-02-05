@@ -1,7 +1,7 @@
 :root {
   /* Base grid settings */
   --line-height: 3pt;
-  /* --ascii-size: 3pt; */
+  --ascii-size: 3pt;
 
   /* 16:9 aspect ratio */
 
@@ -20,11 +20,22 @@
   --font-weight-medium: 600;
   --font-weight-bold: 800;
 
+  /* Base scaling factor based on viewport width */
+  /* --vw-scale: clamp(0.7, calc(0.7 + 0.3 * (100vw - 375px) / (700 - 375)), 1); */
+  --vw-scale: clamp(0.7, 1, 1);
+
+  /* Logo scaling that maintains aspect ratio */
+  --logo-scale: var(--vw-scale);
+  --base-logo-width: 400;
+  --base-logo-height: 225;
+  --logo-width: calc(var(--base-logo-width) * var(--logo-scale) * 1px);
+  --logo-height: calc(var(--base-logo-height) * var(--logo-scale) * 1px);
+
   /* Logo specific scaling */
-  --logo-scale: clamp(0.7, 0.7 + 0.3 * (100vw - 375px) / (700 - 375), 1);
-  /* --logo-width: calc(400px * var(--logo-scale));
-  --logo-height: calc(225px * var(--logo-scale));
-  
+  /* --logo-scale: clamp(0.7, 0.7 + 0.3 * (100vw - 375px) / (700 - 375), 1);
+  --logo-width: calc(400px * var(--logo-scale));
+  --logo-height: calc(225px * var(--logo-scale)); */
+
   --h1-size: clamp(2rem, 8vw, 4rem);
   /* For your "III" */
   --h2-size: clamp(1rem, 4vw, 1.5rem);
