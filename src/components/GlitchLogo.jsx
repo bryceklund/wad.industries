@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import AsciiElement from './AsciiElement';
 import styles from '../styles/GlitchLogo.module.css';
+import logoPng from '../assets/logo-glow.png';
+import logoWebp from '../assets/logo-glow.webp';
 
 const GlitchLogo = ({ className = '', ...props }) => {
     // Use ResizeObserver instead of window resize event
@@ -45,10 +47,10 @@ const GlitchLogo = ({ className = '', ...props }) => {
                 <picture>
                     <source
                         type="image/webp"
-                        srcSet="src/assets/logo-glow.webp"
+                        srcSet={logoWebp}
                     />
                     <img
-                        src="src/assets/logo-glow.png"
+                        src={logoPng}
                         alt="Wad Industries Logo"
                         className={styles.logoImage}
                         loading="eager"
