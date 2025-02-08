@@ -28,11 +28,13 @@
 
   /* robot suggestion */
   transition: filter 0.3s ease-out, transform 0.3s ease-out;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 /* Hover state */
 .container:hover .wrapper {
-  filter: contrast(120%) hue-rotate(-15deg) brightness(110%);
+  filter: contrast(120%) hue-rotate(-85deg) brightness(110%);
   transform: scale(1.02) perspective(500px) rotateX(2deg);
 }
 
@@ -106,9 +108,9 @@
   height: 0;
   background: radial-gradient(circle at center,
       rgba(233, 54, 221, 0) 0%,
-      rgba(233, 54, 221, 0) 40%,
-      rgba(233, 54, 221, 0.1) 70%,
-      rgba(233, 54, 221, 0) 100%);
+      rgba(233, 54, 221, 0) 10%,
+      rgba(233, 54, 221, 0) 20%,
+      rgba(233, 54, 221, 0) 5%);
   opacity: 0;
   transition: opacity 0.3s ease-out;
   z-index: 2;
@@ -136,12 +138,96 @@
   /* line-height: var(--ascii-line-height); */
   line-height: 1;
   white-space: pre;
-  font-weight: lighter;
+  font-weight: bolder;
   color: white;
   transform-origin: center;
   /* Ensure smooth scaling */
   transition: font-size 0.3s ease-out, line-height 0.3s ease-out;
   animation: glitch 4s ease-in-out infinite;
+
+  /* Optimize performance by using transform3d to force GPU acceleration */
+  transform: translate3d(0%, 0%, 0);
+  will-change: transform, opacity;
+
+  /* Add back the glow effect */
+  filter: drop-shadow(0 0 10px rgba(85, 0, 255, 0.1)) drop-shadow(0 0 10px rgba(255, 46, 252, 0.0));
+
+  @media (max-width: 768px) {
+    filter: drop-shadow(0 0 10px rgba(10, 194, 35, 0.7));
+  }
+
+  @media (min-width: 769px) {
+    animation: glitch 4s ease-in-out infinite;
+  }
+
+  @media (max-width: 768px) {
+    animation:
+      mobileMatrixFlicker 2s infinite step-end,
+      mobileGlitchSkew 7s infinite linear;
+  }
+}
+
+/* Reduce animation complexity on hover for mobile */
+@media (hover: hover) {
+  .container:hover .wrapper {
+    transform: translate3d(0, 0, 0) scale(1.02);
+  }
+}
+
+/* Simplified mobile animations */
+@keyframes mobileMatrixFlicker {
+
+  0%,
+  95% {
+    opacity: 1;
+  }
+
+  96% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes mobileGlitchSkew {
+
+  0%,
+  20%,
+  23%,
+  36%,
+  38% {
+    transform: translate3d(0, 0, 0) skew(0deg);
+  }
+
+  21.5% {
+    transform: translate3d(0%, -50%, 0) skew(-50deg) translateZ(0);
+  }
+
+  22% {
+    transform: translate3d(10%, 50%, 0) skew(0deg);
+  }
+
+  22.5% {
+    transform: translate3d(0, 0, 0) skew(-40deg);
+  }
+
+  37% {
+    transform: translate3d(0, 0, 0) skew(-40deg);
+  }
+
+  98% {
+    transform: translate3d(0, 0, 0) skew(0deg);
+  }
+
+  99% {
+    transform: translate3d(0, 0, 0) skew(90deg);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) skew(0deg);
+  }
 }
 
 @keyframes warp {

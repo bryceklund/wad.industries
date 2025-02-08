@@ -1,59 +1,61 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import AsciiElement from './AsciiElement';
 import styles from '../styles/GlitchLogo.module.css';
-import logoGlow from '../assets/logo-glow.png';
 
 const GlitchLogo = ({ className = '', ...props }) => {
-    // Get the natural dimensions of the logo image for proper scaling
-    const [dimensions, setDimensions] = React.useState({ width: 0, height: 0 });
+    // Use ResizeObserver instead of window resize event
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0, scale: 1 });
 
-    const handleResize = useCallback(() => {
-        const scale = parseFloat(
-            getComputedStyle(document.documentElement).getPropertyValue('--logo-scale')
-        );
-        console.log("scale:" + scale);
-        setDimensions(prev => ({
-            ...prev,
-            scale
-        }));
+    const containerRef = useCallback(node => {
+        if (node !== null) {
+            const observer = new ResizeObserver(entries => {
+                const entry = entries[0];
+                if (entry) {
+                    const { width, height } = entry.contentRect;
+                    // Only update if dimensions actually changed
+                    setDimensions(prev => {
+                        if (prev.width !== width || prev.height !== height) {
+                            return { width, height, scale: width / 350 }; // 350 is base width
+                        }
+                        return prev;
+                    });
+                }
+            });
+
+            observer.observe(node);
+            return () => observer.disconnect();
+        }
     }, []);
 
+    // Memoize the style object to prevent unnecessary recalculations
+    const containerStyle = useMemo(() => ({
+        '--logo-base-width': `${dimensions.width}px`,
+        '--logo-base-height': `${dimensions.height}px`,
+    }), [dimensions.width, dimensions.height]);
 
-    React.useEffect(() => {
-        const logoImage = new Image();
-        logoImage.src = logoGlow;
-        logoImage.onload = () => {
-            setDimensions({
-                width: logoImage.naturalWidth,
-                height: logoImage.naturalHeight,
-                scale: 1
-            });
-        };
-        // Add resize listener
-        window.addEventListener('resize', handleResize);
-        handleResize(); // Initial calculation
-
-        console.log(dimensions);
-        return () => window.removeEventListener('resize', handleResize);
-
-    }, [handleResize]);
-
+    // Use CSS will-change to optimize animations
     return (
         <div
+            ref={containerRef}
             className={`select-none ${styles.container} ${className}`}
-            style={{
-                // '--logo-scale': scale,
-                '--logo-base-width': `${dimensions.width}px`,
-                '--logo-base-height': `${dimensions.height}px`, // do this math in useEffect instead?
-            }}
-            {...props} // why?
+            style={containerStyle}
+            {...props}
         >
             <div className={styles.wrapper}>
-                <img
-                    src={logoGlow}
-                    alt="Wad Industries Logo"
-                    className={styles.logoImage}
-                />
+                <picture>
+                    <source
+                        type="image/webp"
+                        srcSet="src/assets/logo-glow.webp"
+                    />
+                    <img
+                        src="src/assets/logo-glow.png"
+                        alt="Wad Industries Logo"
+                        className={styles.logoImage}
+                        loading="eager"
+                        width={dimensions.width}
+                        height={dimensions.height}
+                    />
+                </picture>
                 <div className={styles.asciiWrapper}>
                     <AsciiElement
                         asset="wadIndustriesSimple"
@@ -65,4 +67,4 @@ const GlitchLogo = ({ className = '', ...props }) => {
     );
 };
 
-export default GlitchLogo;
+export default React.memo(GlitchLogo);
