@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       animation: {
-        'glitch': 'matrixFlicker 1.3s infinite step-end, matrixGlow 10s infinite ease-in-out, glitchSkew 2s infinite linear',
+        'glitch': 'matrixFlicker 1.3s infinite step-end, matrixGlow 10s infinite step-end, glitchSkew 2s infinite linear',
       },
       keyframes: {
         matrixFlicker: {
