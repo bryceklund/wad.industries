@@ -23,13 +23,25 @@
   filter: drop-shadow(rgb(20, 123, 13));
   transform: translate(-50%, -50%) scale(0.95);
   /* Ensure proper scaling on iOS */
-  -webkit-text-size-adjust: none;
+  /* -webkit-text-size-adjust: none; */
+
+
+  /* Safari-specific adjustments */
+  /* @supports (-webkit-appearance:none) {
+    font-size: calc(var(--logo-width) * 0.131) !important;
+    line-height: 2.2 !important;
+    transform: translate(-50%, -50%) scale(0.95);
+    top: 50%;
+  } */
 
   /* Mobile-specific adjustments */
   @media (max-width: 768px) {
     font-size: calc(var(--logo-width) * 0.014);
     transform: translate(-50%, -50%) scale(0.85);
   }
+
+
+
 
   /* iOS-specific fixes */
   @supports (-webkit-touch-callout: none) {
