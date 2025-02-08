@@ -8,7 +8,7 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
-    minify: 'esbuild',
+    minify: 'terser',
     cssCodeSplit: true,
     rollupOptions: {
       output: {
