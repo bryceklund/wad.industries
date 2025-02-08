@@ -139,6 +139,7 @@
   display: grid;
   place-items: center;
   mix-blend-mode: color-dodge;
+  overflow: visible;
   /* font-size: var(--ascii-font-size);
   line-height: var(--ascii-line-height); */
 
@@ -148,19 +149,51 @@
   font-family: monospace;
   font-size: calc(var(--logo-width) * 0.005);
   /* line-height: var(--ascii-line-height); */
+  /* line-height: calc(var(--logo-width) * 0.005); */
+  /* Match line-height to font-size for consistent spacing */
+  /* Match line-height to font-size for consistent spacing */
   line-height: calc(var(--logo-width) * 0.005);
+
+
+
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* transform: translate(-50%, -50%); */
+
+  /* Safari-specific adjustment */
+  @media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+      line-height: calc(var(--logo-width) * 0.0065);
+    }
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    line-height: calc(var(--logo-width) * 0.005);
+
+    /* Safari mobile specific */
+    @supports (-webkit-touch-callout: none) {
+      line-height: calc(var(--logo-width) * 0.0065);
+    }
+  }
+
+
   white-space: pre;
   font-weight: bold;
   color: rgb(255, 255, 255);
   transform-origin: center;
   filter: drop-shadow(10 10 20px #097012fe);
   /* Ensure smooth scaling */
-  transition: font-size 0.3s step-end, line-height 0.3s step-end;
+  transition: font-size 0.3s step-end,
+  line-height 0.3s step-end;
   animation: glitch 4s step-end infinite;
 
   /* Optimize performance by using transform3d to force GPU acceleration */
   transform: translate3d(0%, 0%, 0);
-  will-change: transform, opacity;
+  will-change: transform,
+  opacity;
 
   /* Add back the glow effect */
   filter: drop-shadow(0 0 6px rgba(9, 122, 16, 0.792)) drop-shadow(0 0 4px rgba(15, 108, 40, 0.201));
@@ -175,9 +208,29 @@
   }
 
   @media (max-width: 768px) {
-    animation: colorshift 17s ease-in-out infinite, glitch 7s step-end infinite;
+
+    animation: colorshift 17s ease-in-out infinite,
+      glitch 7s step-end infinite;
     /* mobileMatrixFlicker 9s infinite step-end, */
     /* mobileGlitchSkew 7s infinite step-end; */
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .container {
+    max-width: calc(var(--logo-width) * 0.9);
+  }
+
+  .asciiWrapper {
+    transform: scale(0.9);
+  }
+}
+
+/* iOS specific adjustments */
+@supports (-webkit-touch-callout: none) {
+  .asciiWrapper {
+    transform: scale(1.2);
   }
 }
 
