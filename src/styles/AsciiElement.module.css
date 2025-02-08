@@ -11,25 +11,36 @@
 } */
 
 .asciiArt {
-    font-family: monospace;
-    font-size: 4px; /* Adjust as needed */
-    white-space: pre;
-    line-height: 1.0;
-    position: absolute;
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* background: transparent; */
-    /* display: none; */
+  font-family: monospace;
+  font-size: 4px;
+  /* Adjust as needed */
+  white-space: pre;
+  line-height: 1.2;
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(rgb(20, 123, 13));
 
-      /* Keep your existing styles and add: */
+  /* Add responsive line height for different screen sizes */
+  @media (max-width: 768px) {
+    line-height: 2.4;
+    /* Even more spacing on mobile */
+    font-size: 3.5px;
+    /* Slightly smaller font on mobile to accommodate increased line height */
+  }
+
+  /* background: transparent; */
+  /* display: none; */
+
+  /* Keep your existing styles and add: */
   /* color: rgba(25, 206, 140, 0.8);
   color: blue;
   backdrop-filter: blur(1px);
   mix-blend-mode: screen; */
 
-/* color changing text */
-  
+  /* color changing text */
+
   /* background-size: 400% 400%;
   animation: gradient 5s ease infinite;
   filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.5)); */
@@ -55,8 +66,8 @@
              matrixGlow 15s infinite ease-in-out,
              glitchSkew 22s infinite linear; */
 
-             /* glass morphism */
-               /* Keep your existing styles and add: */
+  /* glass morphism */
+  /* Keep your existing styles and add: */
   /* background: transparent;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -65,82 +76,207 @@
   animation: colorShift 5s infinite ease-in-out; */
 
   animation: matrixFlicker 1.3s infinite step-end,
-             matrixGlow 10s infinite ease-in-out,
-             glitchSkew 2s infinite linear,
-             matrixFlicker 1.3s infinite step-end,
-             glitchSkew1 2s infinite linear;
-             /*glitchSkew2 2s infinite linear,
+  matrixGlow 10s infinite ease-in-out,
+  glitchSkew 2s infinite linear,
+  matrixFlicker 1.3s infinite step-end,
+  glitchSkew1 2s infinite linear;
+  /*glitchSkew2 2s infinite linear,
              glitchSkew3 2s infinite linear; */
-      
-    }
 
-    /* Add new glitch skew animation */
+}
+
+/* Add new glitch skew animation */
 @keyframes glitchSkew {
-    19% { transform: translate(-50%, -50%) skew(0deg); }
-    20% { transform: translate(-50%, -50%) skew(60deg); }
-    21% { transform: translate(-50%, -50%) skew(-1.5deg); }
-    25% { transform: translate(-50%, -50%) skew(0deg); }
-    80% { transform: translate(-50%, -50%) skew(0deg); }
-    83% { transform: translate(-50%, -50%) skew(-30deg); }
-    84% { transform: translate(-50%, -50%) skew(0deg); }
-    100% { transform: translate(-50%, -50%) skew(0deg); }
+  19% {
+    transform: translate(-50%, -50%) skew(0deg);
   }
 
-  @keyframes glitchSkew1 {
-    19% { transform: translate(-50%, -50%) skew(0deg); }
-    20% { transform: translate(-50%, -50%) skew(30deg); }
-    21% { transform: translate(-50%, -50%) skew(1.5deg); }
-    25% { transform: translate(-50%, -50%) skew(0deg); }
-    80% { transform: translate(-50%, -50%) skew(0deg); }
-    83% { transform: translate(-50%, -50%) skew(20deg); }
-    84% { transform: translate(-50%, -50%) skew(0deg); }
-    100% { transform: translate(-50%, -50%) skew(0deg); }
-  }
-  
-  @keyframes glitchSkew2 {
-    0% { transform: translate(-50%, -50%) skew(0deg); }
-    25% { transform: translate(-50%, -50%) skew(-2deg); }
-    75% { transform: translate(-50%, -50%) skew(1deg); }
-    100% { transform: translate(-50%, -50%) skew(0deg); }
-  }
-  
-  @keyframes glitchSkew3 {
-    0% { transform: translate(-50%, -50%) skew(0deg); }
-    20% { transform: translate(-50%, -50%) skew(1.5deg); }
-    40% { transform: translate(-50%, -50%) skew(-1.5deg); }
-    60% { transform: translate(-50%, -50%) skew(1deg); }
-    80% { transform: translate(-50%, -50%) skew(-1deg); }
-    100% { transform: translate(-50%, -50%) skew(0deg); }
+  20% {
+    transform: translate(-50%, -50%) skew(60deg);
   }
 
-    @keyframes matrixFlicker {
-        0% { opacity: 1; }
-        95% { opacity: 1; }
-        96% { opacity: .3; }
-        97% { opacity: 0.2; }
-        98% { opacity: 0.1; }
-        100% { opacity: 1; }
-      }
-      
-      @keyframes matrixGlow {
-        0% { text-shadow: 0 199 5px #ff6f00, 0 0 10px #1e8881; }
-        50% { text-shadow: 0 0 20px #a55e2e, 0 0 10px #6cc7a8, 0 0 20px #1db529; }
-        95% { opacity: 1; }
-        96% { opacity: 0; }
-        97% { opacity: 0.2; }
-        98% { opacity: 0.1; }
-        100% { opacity: 1; }
-        100% { text-shadow: 0 0 50px #5500ff, 0 0 100px #e157de; }
-      }
+  21% {
+    transform: translate(-50%, -50%) skew(-1.5deg);
+  }
 
-      @keyframes colorShift {
-        0% { color: rgb(166, 26, 26); }
-        33% { color: pink; }
-        66% { color: rgb(0, 255, 55); }
-        100% { color: white; }
-      }
+  25% {
+    transform: translate(-50%, -50%) skew(0deg);
+  }
 
-    /* @keyframes glow {
+  80% {
+    transform: translate(-50%, -50%) skew(0deg);
+  }
+
+  83% {
+    transform: translate(-50%, -50%) skew(-30deg);
+  }
+
+  84% {
+    transform: translate(-50%, -50%) skew(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) skew(0deg);
+  }
+}
+
+@keyframes glitchSkew1 {
+  19% {
+    transform: translate(-50%, -50%) skew(0deg);
+  }
+
+  20% {
+    transform: translate(-50%, -50%) skew(30deg);
+  }
+
+  21% {
+    transform: translate(-50%, -50%) skew(1.5deg);
+  }
+
+  25% {
+    transform: translate(-50%, -50%) skew(0deg);
+  }
+
+  80% {
+    transform: translate(-50%, -50%) skew(0deg);
+  }
+
+  83% {
+    transform: translate(-50%, -50%) skew(20deg);
+  }
+
+  84% {
+    transform: translate(-50%, -50%) skew(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) skew(0deg);
+  }
+}
+
+@keyframes glitchSkew2 {
+  0% {
+    transform: translate(-50%, -50%) skew(0deg);
+  }
+
+  25% {
+    transform: translate(-50%, -50%) skew(-2deg);
+  }
+
+  75% {
+    transform: translate(-50%, -50%) skew(1deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) skew(0deg);
+  }
+}
+
+@keyframes glitchSkew3 {
+  0% {
+    transform: translate(-50%, -50%) skew(0deg);
+  }
+
+  20% {
+    transform: translate(-50%, -50%) skew(1.5deg);
+  }
+
+  40% {
+    transform: translate(-50%, -50%) skew(-1.5deg);
+  }
+
+  60% {
+    transform: translate(-50%, -50%) skew(1deg);
+  }
+
+  80% {
+    transform: translate(-50%, -50%) skew(-1deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) skew(0deg);
+  }
+}
+
+@keyframes matrixFlicker {
+  0% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  96% {
+    opacity: .3;
+  }
+
+  97% {
+    opacity: 0.2;
+  }
+
+  98% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes matrixGlow {
+  0% {
+    text-shadow: 0 199 5px #ff6f00, 0 0 10px #1e8881;
+  }
+
+  50% {
+    text-shadow: 0 0 20px #a55e2e, 0 0 10px #6cc7a8, 0 0 20px #1db529;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  96% {
+    opacity: 0;
+  }
+
+  97% {
+    opacity: 0.2;
+  }
+
+  98% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+  100% {
+    text-shadow: 0 0 50px #5500ff, 0 0 100px #e157de;
+  }
+}
+
+@keyframes colorShift {
+  0% {
+    color: rgb(166, 26, 26);
+  }
+
+  33% {
+    color: pink;
+  }
+
+  66% {
+    color: rgb(0, 255, 55);
+  }
+
+  100% {
+    color: rgb(27, 101, 21);
+  }
+}
+
+/* @keyframes glow {
         from { text-shadow: 0 0 5px #00ff3c, 0 0 10px #ff00ff, 0 0 15px #1e00ff; }
         to { text-shadow: 0 0 10px #191d99, 0 0 20px #d91005, 0 0 30px #000000; }
       }
@@ -155,7 +291,7 @@
         100% { color: #ff00ff; }
       } */
 
-      /* @keyframes gradient {
+/* @keyframes gradient {
         0% { color: #ff00ff;   backdrop-filter: invert(0%); }
         25% { color: #ff00cc;  backdrop-filter: invert(30%); }
         50% { color: #00ffff;   backdrop-filter: invert(90%); }
@@ -163,7 +299,7 @@
         100% { color: #ff00ff;   backdrop-filter: invert(0%); }
       } */
 
-      /* @keyframes gradient {
+/* @keyframes gradient {
         0% { color: #ff00ff;  opacity: 0%;   backdrop-filter: invert(0%); }
         25% { color: #ff00cc; opacity: 70%;  backdrop-filter: invert(30%); }
         50% { color: #00ffff;  opacity: 30%;  backdrop-filter: invert(90%); }
