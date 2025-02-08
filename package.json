@@ -15,9 +15,11 @@
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.3",
     "@tailwindcss/vite": "^4.0.3",
+    "@vercel/analytics": "^1.4.1",
     "nvm": "^0.0.4",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "web-vitals": "^4.2.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
