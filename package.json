@@ -35,6 +35,7 @@
     "postcss": "^8.5.1",
     "tailwind": "^4.0.0",
     "tailwindcss": "^4.0.3",
+    "terser": "^5.38.1",
     "vite": "^6.0.5"
   },
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
