@@ -1,0 +1,10 @@
+:root {
+    /* Base grid settings */
+    --line-height: 3pt;
+    --ascii-size: 3pt;
+    
+    /* Logo specific scaling */
+    --logo-scale: 1;  /* Adjust this to scale the entire logo up/down */
+    --logo-width: calc(400px * var(--logo-scale));
+    --logo-height: calc(225px * var(--logo-scale)); /* 16:9 aspect ratio */
+  }
