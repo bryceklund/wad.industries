@@ -1,5 +1,5 @@
 import React from 'react';
-import AsciiElement from './AsciiElement';
+import AsciiElement from '../src/components/AsciiElement';
 import styles from '../styles/LogoNavHeader.module.css';
 import logoGlow from '../assets/logo-glow.png';
 
