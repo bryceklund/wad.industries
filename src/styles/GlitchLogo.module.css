@@ -231,7 +231,7 @@
 /* iOS specific adjustments */
 @supports (-webkit-touch-callout: none) {
   .asciiWrapper {
-    transform: scale(1.2);
+    transform: scale(1);
   }
 }
 
