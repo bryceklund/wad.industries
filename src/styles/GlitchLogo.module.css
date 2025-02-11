@@ -56,7 +56,7 @@
 
 /* Add subtle distortion to the ASCII on hover */
 .container:hover .asciiArt {
-  animation: hoverDistort 2s infinite alternate;
+  /* animation: hoverDistort 2s infinite alternate; */
 }
 
 @keyframes hoverDistort {
@@ -146,74 +146,47 @@
 }
 
 .asciiArt {
-
-  _::-webkit-full-page-media,
-  _:future,
-  :root & {
-
-    line-height: calc(var(--logo-width) * .005);
-    transform: scaleY(300%);
-    /* calc(var(--logo-width) * .005); */
-
-
-    /* line-height: calc(var(--logo-width) * 0.005); */
-    /* transform: scale(0); */
-    /* Try scaling up slightly */
-  }
-
   /* Base typography */
   font-family: monospace;
   font-size: calc(var(--logo-width) * 0.005);
   line-height: calc(var(--logo-width) * 0.005);
 
-  /* Safari-specific adjustments */
-
-
-
-
   /* Positioning */
-  /* position: absolute; */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) translate3d(0, 0, 0) scale(1);
+  position: absolute;
+  /* transform: translate(50%, -50%) translate3d(0, 0, 0) scale(1); ---- */
   transform-origin: center;
-  will-change: transform,
-  opacity;
+  will-change: transform, opacity;
 
   /* Visual effects */
   filter: drop-shadow(0 0 6px rgba(9, 122, 16, 0.792)) drop-shadow(0 0 4px rgba(15, 108, 40, 0.201));
 
   /* Animations */
-  transition: font-size 0.3s step-end,
-  line-height 0.3s step-end;
-  animation: glitch 4s step-end infinite;
+  /* transition: font-size 0.3s step-end, line-height 0.3s step-end;
+  animation: glitch 4s step-end infinite; */
 
-  /* Desktop specific */
-  @media (min-width: 769px) {
+  /* Desktop animations */
+  /* @media (min-width: 769px) {
     animation: colorshift 7s ease-in-out infinite,
       glitch 7s step-end infinite;
-  }
+  } */
 
-  /* Mobile adjustments */
-  @media (max-width: 768px) {
-    line-height: calc(var(--logo-width) * 0.005);
+  /* Mobile animations */
+  /* @media (max-width: 768px) {
     filter: drop-shadow(0 0 10px rgba(8, 130, 24, 0.971));
     animation: colorshift 17s ease-in-out infinite,
       glitch 7s step-end infinite;
-
-    /* Safari mobile specific */
-    @supports (-webkit-touch-callout: none) {
-      line-height: calc(var(--logo-width) * 0.007);
-      /* Increased from 0.0065 */
-      transform: translate(-50%, -50%) translate3d(0, 0, 0) scale(1.1);
-      top: 51%;
-    }
-  }
+  } */
 }
 
+/* Safari-specific styles */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
 
-
-
+  _::-webkit-full-page-media,
+  _:future,
+  :root .asciiArt {
+    transform: scaleY(1.35);
+  }
+}
 
 
 
