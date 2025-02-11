@@ -201,7 +201,7 @@
   _::-webkit-full-page-media,
   _:future,
   :root .asciiArt {
-    transform: scaleY(170%);
+    transform: scaleY(1);
   }
 
   .container {
