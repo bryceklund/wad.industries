@@ -188,23 +188,28 @@
   }
 }
 
-
+/* iOS specific adjustments */
+@supports (-webkit-touch-callout: none) {
+  .asciiWrapper {
+    transform: scale(1);
+  }
+}
 
 /* Mobile optimizations */
 @media (max-width: 768px) {
+
+  _::-webkit-full-page-media,
+  _:future,
+  :root .asciiArt {
+    transform: scaleY(170%);
+  }
+
   .container {
     max-width: calc(var(--logo-width) * 0.9);
   }
 
   .asciiWrapper {
     transform: scale(0.9);
-  }
-}
-
-/* iOS specific adjustments */
-@supports (-webkit-touch-callout: none) {
-  .asciiWrapper {
-    transform: scale(1);
   }
 }
 
