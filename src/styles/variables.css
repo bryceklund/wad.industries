@@ -1,0 +1,42 @@
+:root {
+  /* Typography scale */
+  --h1-size: clamp(2rem, 8vw, 4rem);
+  /* III */
+  --h2-size: clamp(1rem, 4vw, 1.5rem);
+  /* WAD INDUSTRIES PRESENTS */
+  --h3-size: clamp(1rem, 3vw, 1.25rem);
+  /* Date */
+  --nav-size: clamp(0.875rem, 2vw, 1rem);
+  /* Navigation */
+
+  /* Default logo size */
+  --logo-width: 350px;
+}
+
+/* Mobile - 320px */
+@media screen and (min-width: 320px) {
+  :root {
+    --logo-width: 255px;
+  }
+}
+
+/* Small tablets - 400px */
+@media screen and (min-width: 400px) {
+  :root {
+    --logo-width: 350px;
+  }
+}
+
+/* Tablets - 768px */
+@media screen and (min-width: 768px) {
+  :root {
+    --logo-width: 545px;
+  }
+}
+
+/* Desktop - 1024px */
+@media screen and (min-width: 1024px) {
+  :root {
+    --logo-width: 540px;
+  }
+}

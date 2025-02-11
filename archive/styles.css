@@ -3,14 +3,15 @@ html {
     background-repeat: no-repeat;
     background-position: center 175px;
     background-color: black;
-    background-size: 700px;;
+    background-size: 700px;
+    ;
 }
 
 .vertical-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .boy {
@@ -38,7 +39,7 @@ html {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    
+
 }
 
 .cube-container {
@@ -67,7 +68,7 @@ html {
 .title-container:hover {
     /*letter-spacing: 10px;*/
     cursor: default;
-  } 
+}
 
 .title-text {
     backdrop-filter: blur(5px);
@@ -93,7 +94,7 @@ html {
     border-bottom: 5px solid rgb(9, 177, 177);
     border-right: 15px solid pink;
     border-left: 15px solid pink;
-    /*background: linear-gradient(0deg, rgba(133,133,133,1) 0%, rgba(233,189,238,1) 52%, rgba(224,224,224,1) 100%);*/
+    background: linear-gradient(0deg, rgba(133, 133, 133, 1) 0%, rgba(233, 189, 238, 1) 52%, rgba(224, 224, 224, 1) 100%);
     max-width: 700px;
     height: 35px;
 }
@@ -115,7 +116,8 @@ html {
     margin-bottom: 20px;
 }
 
-.releasedate, .presave {
+.releasedate,
+.presave {
     margin-left: auto;
     margin-right: auto;
     max-width: 700px;
@@ -129,7 +131,7 @@ html {
 }
 
 .releasedate > span {
-    color:rgb(9, 177, 177);
+    color: rgb(9, 177, 177);
     font-size: 72px;
     text-align: center;
 }
@@ -138,7 +140,7 @@ html {
     max-width: 700px;
 }
 
- .presave > a {
+.presave > a {
     position: absolute;
     font-size: 50px;
 }
@@ -149,37 +151,86 @@ html {
 }
 
 .noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-      -webkit-user-select: none; /* Safari */
-       -khtml-user-select: none; /* Konqueror HTML */
-         -moz-user-select: none; /* Old versions of Firefox */
-          -ms-user-select: none; /* Internet Explorer/Edge */
-              user-select: none; /* Non-prefixed version, currently
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
-  }
+}
 
-  @keyframes color-change {
-    0% { color: red; }
-    25% { color: blue; }
-    50% { color: green; }
-    75% { color: purple; }
-    100% { color: red; }
-  }
+@keyframes color-change {
+    0% {
+        color: red;
+    }
 
-  @keyframes hover {
-    0% { top: 350px; }
-    25% { top: 400px; left: 0px; right: -50px; }
-    75% { top: 450px; left: -50px; right: 0px; }
-    99% { top: 350px; }
-  }
+    25% {
+        color: blue;
+    }
 
-  @keyframes fontswitch {
-    0% { font-family:'Times New Roman', Times, serif; }
-    20% { font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; }
-    40% { font-family:'Courier New', Courier, monospace }
-    60% { font-family: Georgia, 'Times New Roman', Times, serif; }
-    80% { font-family: Verdana, Geneva, Tahoma, sans-serif; }
-  }
+    50% {
+        color: green;
+    }
+
+    75% {
+        color: purple;
+    }
+
+    100% {
+        color: red;
+    }
+}
+
+@keyframes hover {
+    0% {
+        top: 350px;
+    }
+
+    25% {
+        top: 400px;
+        left: 0px;
+        right: -50px;
+    }
+
+    75% {
+        top: 450px;
+        left: -50px;
+        right: 0px;
+    }
+
+    99% {
+        top: 350px;
+    }
+}
+
+@keyframes fontswitch {
+    0% {
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    20% {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    40% {
+        font-family: 'Courier New', Courier, monospace
+    }
+
+    60% {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    80% {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+}
 
 @media screen and (max-width: 850px) {
     .boys {
@@ -188,15 +239,13 @@ html {
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .boy {
         height: 33%;
         width: auto;
     }
 
 
-    .construction {
-    
-    }
-    
+    .construction {}
+
 }

@@ -1,56 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>WAD INDUSTRIES</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="./assets/favicon-32x32.png">
-    <meta property="og:title" content="WAD INDUSTRIES">
-    <meta property="og:site_name" content="WAD INDUSTRIES">
-    <meta property="og:url" content="https://wad.industries/">
-    <meta property="og:description" content="">
-    <meta property="og:type" content="music.musician">
-    <meta property="og:image" content="https://wad.industries/assets/boy3.png">
-  </head>
-  <body>
-    <div class="corporate-logo noselect">
-      <img src="./assets/square-logo.png" />
-    </div>
-    <div class="nav">
-      <a target="_blank" href="https://open.spotify.com/artist/26Yk40A80aUvq6nKOvarHv?si=jXSAvTMxThK1LwmwgHaV1w">spotify</a>
-      <a target="_blank" href="https://wadindustries.bandcamp.com/">bandcamp</a>
-      <a target="_blank" href="https://www.instagram.com/wadindustries/">instagram</a>
-      <a target="_blank" href="https://twitter.com/wad_industries">twitter</a>
-      <a target="_blank" href="mailto:mail@wad.industries">email</a>
-    </div>
-    <div class="cube-container noselect">
-      <div class="title-container noselect">
-        <span class="title-text">WAD INDUSTRIES</span><br />
-        <span class="title-text">PRESENTS</spam><br />
-        <span class="title-text">"YOU'RE READY"</spam><br />
-        <span class="title-text">BY WAD</spam><br />
-      </div>
-      <img class="wadcube" src="./assets/wadcube.blend.v3.gif" />
-    </div>
-    <!-- <div class="releasedate">
-      <span>out april 2, 2023 12:00am EST</span>
-    </div>
-    <div class="presave">
-      <span class="releasedate">🔥click here 2 presave🔥</span>
-      <a href="https://distrokid.com/hyperfollow/wad9/youre-ready" target="_blank">      <img class="imglink" src="./assets/youre-ready.png" />
-      </a>
-    </div> -->
-
-      <!--<img class="construction" src="./assets/under_construction.gif" />-->
-    <!--
-      <div class="boys vertical-center">
-         <img class="boy 1" src="./assets/boy1.png" />
-         <img class="boy 2" src="./assets/boy2.png" />
-         <img class="boy 3" src="./assets/boy3.png" />
-	  </div>
-    -->
-    <p style="color: black; z-index: -1;">for spotify: this page and the Spotify profile are managed by Bryce Eklund, whose email address is bryce.eklund@gmail.com.</p>
-  </body>
+<head>
+  <!-- page title -->
+  <title>WAD INDUSTRIES</title>
+  <!-- metadata -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta property="og:title" content="WAD INDUSTRIES">
+  <meta property="og:site_name" content="WAD INDUSTRIES">
+  <meta property="og:url" content="https://wad.industries/">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="music.musician">
+  <meta property="og:image" content="https://wad.industries/assets/fire.gif">
+  <!-- Vite will handle these styles through your imports -->
+  <link rel="preload" href="/src/assets/logo-glow.png" as="image">
+  <link rel="icon" href="/assets/favicon-32x32.png">
+  <style>
+    body {
+      background-color: #1b1a1a;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- This div is required for React to mount -->
+  <div id="root"></div>
+  <!-- Vite entry point - don't remove this -->
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

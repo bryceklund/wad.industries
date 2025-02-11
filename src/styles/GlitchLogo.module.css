@@ -1,0 +1,445 @@
+.container {
+  /* Constrain container to logo dimensions */
+  /* width: 100%; */
+  max-width: var(--logo-width);
+  aspect-ratio: 16/9;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: default;
+  /* Prevent any overflow */
+}
+
+.logoImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* aspect-ratio: 16/9; */
+  isolation: isolate;
+  /* overflow: hidden; */
+
+  filter: brightness(0.25), saturate(1200%);
+
+  /* robot suggestion */
+  transition: filter 0.3s ease-in-out, transform 0.3s ease-in;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* background: rgba(0, 0, 0, 0.1); */
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+/* Hover state */
+.container:hover .wrapper {
+  filter: contrast(120%) hue-rotate(-85deg) brightness(110%);
+  transform: scale(1.02) perspective(500px) rotateX(2deg);
+}
+
+.container:hover .wrapper::before {
+  opacity: 1;
+}
+
+/* Add subtle distortion to the ASCII on hover */
+.container:hover .asciiArt {
+  animation: hoverDistort 2s infinite alternate;
+}
+
+@keyframes hoverDistort {
+  0% {
+    transform: skew(0deg) scale(1);
+    filter: blur(0px);
+  }
+
+  25% {
+    transform: skew(-1deg) scale(1.01);
+    filter: blur(0.3px);
+  }
+
+  75% {
+    transform: skew(1deg) scale(0.99);
+    filter: blur(0.1px);
+  }
+
+  100% {
+    transform: skew(0deg) scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* Clean snap-back transition */
+.container,
+.container * {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Optional: Add glitch effect on hover exit */
+.container:not(:hover) .wrapper {
+  animation: exitGlitch 0.4s ease-out;
+}
+
+@keyframes exitGlitch {
+  0% {
+    transform: scale(1.02) perspective(500px) rotateX(2deg);
+    filter: contrast(120%) hue-rotate(-15deg) brightness(110%);
+  }
+
+  20% {
+    transform: scale(1.01) perspective(500px) rotateX(-1deg) skew(2deg);
+    filter: contrast(150%) hue-rotate(5deg) brightness(120%);
+  }
+
+  100% {
+    transform: scale(1) perspective(500px) rotateX(0deg);
+    filter: contrast(100%) hue-rotate(0deg) brightness(100%);
+  }
+}
+
+/* begin robot suggestions */
+.wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  /* Extend well beyond boundaries */
+  width: 0;
+  /* Make gradient area larger than container */
+  height: 0;
+  /* background: radial-gradient(circle at center,
+      rgba(233, 54, 221, 0) 0%,
+      rgba(233, 54, 221, 0) 10%,
+      rgba(233, 54, 221, 0) 20%,
+      rgba(233, 54, 221, 0) 5%); */
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  z-index: 2;
+  pointer-events: none;
+  /* Ensure it doesn't interfere with interactions */
+}
+
+
+/* end robot suggestions */
+
+.asciiWrapper {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  mix-blend-mode: color-dodge;
+  overflow: visible;
+  /* font-size: var(--ascii-font-size);
+  line-height: var(--ascii-line-height); */
+
+}
+
+.asciiArt {
+
+  _::-webkit-full-page-media,
+  _:future,
+  :root & {
+
+    line-height: calc(var(--logo-width) * .005);
+    transform: scaleY(300%);
+    /* calc(var(--logo-width) * .005); */
+
+
+    /* line-height: calc(var(--logo-width) * 0.005); */
+    /* transform: scale(0); */
+    /* Try scaling up slightly */
+  }
+
+  /* Base typography */
+  font-family: monospace;
+  font-size: calc(var(--logo-width) * 0.005);
+  line-height: calc(var(--logo-width) * 0.005);
+
+  /* Safari-specific adjustments */
+
+
+
+
+  /* Positioning */
+  /* position: absolute; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translate3d(0, 0, 0) scale(1);
+  transform-origin: center;
+  will-change: transform,
+  opacity;
+
+  /* Visual effects */
+  filter: drop-shadow(0 0 6px rgba(9, 122, 16, 0.792)) drop-shadow(0 0 4px rgba(15, 108, 40, 0.201));
+
+  /* Animations */
+  transition: font-size 0.3s step-end,
+  line-height 0.3s step-end;
+  animation: glitch 4s step-end infinite;
+
+  /* Desktop specific */
+  @media (min-width: 769px) {
+    animation: colorshift 7s ease-in-out infinite,
+      glitch 7s step-end infinite;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    line-height: calc(var(--logo-width) * 0.005);
+    filter: drop-shadow(0 0 10px rgba(8, 130, 24, 0.971));
+    animation: colorshift 17s ease-in-out infinite,
+      glitch 7s step-end infinite;
+
+    /* Safari mobile specific */
+    @supports (-webkit-touch-callout: none) {
+      line-height: calc(var(--logo-width) * 0.007);
+      /* Increased from 0.0065 */
+      transform: translate(-50%, -50%) translate3d(0, 0, 0) scale(1.1);
+      top: 51%;
+    }
+  }
+}
+
+
+
+
+
+
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .container {
+    max-width: calc(var(--logo-width) * 0.9);
+  }
+
+  .asciiWrapper {
+    transform: scale(0.9);
+  }
+}
+
+/* iOS specific adjustments */
+@supports (-webkit-touch-callout: none) {
+  .asciiWrapper {
+    transform: scale(1);
+  }
+}
+
+/* Reduce animation complexity on hover for mobile */
+@media (hover: hover) {
+  .container:hover .wrapper {
+    transform: translate3d(0, 0, 0) scale(1.02);
+  }
+}
+
+/* Simplified mobile animations */
+@keyframes mobileMatrixFlicker {
+
+  0%,
+  10%,
+  95% {
+    opacity: 1;
+  }
+
+  6% {
+    opacity: 0.1;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: .5;
+  }
+}
+
+@keyframes mobileGlitchSkew {
+
+  0%,
+  21%,
+  23%,
+  36%,
+  38% {
+    transform: translate3d(0, 0, 0) skew(0deg);
+  }
+
+  21.5% {
+    transform: translate3d(0%, -50%, 0) skew(-50deg) translateZ(0);
+  }
+
+  22% {
+    transform: translate3d(10%, 50%, 0) skew(0deg);
+  }
+
+  22.5% {
+    transform: translate3d(0, 0, 0) skew(-40deg);
+  }
+
+  37% {
+    transform: translate3d(0, 0, 0) skew(-40deg);
+  }
+
+  98% {
+    transform: translate3d(0, 0, 0) skew(0deg);
+  }
+
+  99% {
+    transform: translate3d(0, 0, 0) skew(90deg);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) skew(0deg);
+  }
+}
+
+@keyframes warp {
+
+  0%,
+  100% {
+    transform: skew(0deg);
+  }
+
+  50% {
+    transform: skew(10deg);
+  }
+}
+
+@keyframes glitch {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: skew(0deg);
+    filter: drop-shadow(0 0 5px #05512c, 0 0 5px #097932);
+    /* filter: drop-shadow(0 0 10px rgb(9, 162, 30)); */
+  }
+
+  10% {
+    transform: translate(0, 0);
+  }
+
+  11%,
+  12% {
+    transform: translate(15px, -8px);
+  }
+
+  13% {
+    transform: translate(-18px, 8px);
+    opacity: 1;
+  }
+
+  14% {
+    transform: translate(0, 0);
+    opacity: .5;
+  }
+
+  32% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 0;
+  }
+
+  34% {
+    opacity: 1;
+  }
+
+  /* Flashes */
+  48% {
+    opacity: 1;
+  }
+
+  49% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  57% {
+    opacity: 1;
+  }
+
+  58% {
+    opacity: 0;
+  }
+
+  59% {
+    opacity: 1;
+  }
+
+  /* Glitch moment */
+  78% {
+    transform: skew(0deg);
+  }
+
+  79% {
+    transform: skew(30deg);
+  }
+
+  80% {
+    transform: skew(-20deg);
+  }
+
+  81% {
+    transform: skew(0deg);
+  }
+
+}
+
+@keyframes colorshift {
+
+  0% {
+    filter: drop-shadow(rgba(8, 131, 66, .7))
+  }
+
+  /* Color shift */
+  25% {
+    ilter: drop-shadow(rgba(27, 101, 21, 1));
+
+  }
+
+  50% {
+    filter: drop-shadow(rgb(124, 13, 136));
+  }
+
+  60% {
+    /* text-shadow: 0 0 20px #078f13, 0 0 100px #099b15; */
+    filter: drop-shadow(rgb(27, 101, 21));
+  }
+}
+
+/* @keyframes colorShift {
+  0% {
+    color: rgb(166, 26, 26);
+  }
+
+  33% {
+    color: pink;
+  }
+
+  66% {
+    color: rgb(0, 255, 55);
+  }
+
+  100% {
+    color: rgb(27, 101, 21);
+  }
+} */
