@@ -25,7 +25,7 @@ function App() {
             >
               WAD Industries Presents
             </h2>
-            <h6 className="text-gray-600 glow">two new songs</h6>
+            <h6 className="text-gray-600 glow"><span className="blur-[4px]">two </span>new songs<span className="blur-[4px]"> two</span></h6>
 
             {/* Title and Date */}
 
