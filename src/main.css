@@ -114,7 +114,8 @@ p {
 }
 
 /* Light mode overrides */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light),
+(prefers-color-scheme: dark) {
   :root {
     color: #d5e1eb;
     background-color: #1b1a1a;
