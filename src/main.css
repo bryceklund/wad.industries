@@ -163,6 +163,7 @@ p {
     text-shadow:
       0 0 30px rgb(12, 193, 9),
       0 0 50px rgba(73, 9, 199, 0.847);
+    animation-timing-function: linear;
     animation: textGlitch1 10s ease-in-out infinite, textGlitch2 10s ease-in-out alternate-reverse infinite;
   }
 
@@ -192,6 +193,7 @@ p {
 }
 
 @keyframes textGlitch2 {
+
 
   0%,
   100% {
