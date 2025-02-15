@@ -17,30 +17,31 @@ function App() {
           </header>
 
           {/* Main Content Section */}
-          <main className="select-none mt-12 sm:mt-14 space-y-6 font-mono text-center">
+          <main className="select-none mt-12 sm:mt-14 font-mono text-center">
             {/* Presentation Title */}
             <h2
-              className="text-xl sm:text-2xl uppercase tracking-wider text-gray-400"
+              className="text-xl sm:text-2xl uppercase tracking-wider text-gray-400 glow"
               style={{ fontSize: 'var(--h2-size)' }}
             >
               WAD Industries Presents
             </h2>
+            <h6 className="text-gray-600 glow">two new songs</h6>
 
             {/* Title and Date */}
-            <div className="space-y-6">
-              <h1
-                className="sm:mt-0 text-4xl sm:text-4xl font-bold uppercase glow-text"
-                style={{ fontSize: 'var(--h1-size)' }}
-              >
-                III
-              </h1>
-              <h3
-                className="mt-4 text-xl sm:text-2xl font-light text-gray-600"
-                style={{ fontSize: 'var(--h3-size)' }}
-              >
-                February 21 2025
-              </h3>
-            </div>
+
+            <h1
+              className="sm:mt-10 mt-4 text-8xl sm:text-8xl font-bold uppercase glow-glitch"
+              style={{ fontSize: 'var(--h1-size)' }}
+            >
+              III
+            </h1>
+            <h3
+              className="text-xl sm:text-2xl font-light text-gray-600"
+              style={{ fontSize: 'var(--h3-size)' }}
+            >
+              February 21 2025
+            </h3>
+
           </main>
         </div>
       </div>

@@ -153,10 +153,17 @@ p {
     filter: drop-shadow(0 0 2em #61dafbaa);
   }
 
-  .glow-text {
+  .glow {
     text-shadow:
       0 0 10px rgba(163, 116, 255, 0.5),
       0 0 20px rgba(163, 116, 255, 0.3);
+  }
+
+  .glow-glitch {
+    text-shadow:
+      0 0 30px rgb(12, 193, 9),
+      0 0 50px rgba(73, 9, 199, 0.847);
+    animation: textGlitch 10s ease-in-out infinite, textGlitch 6s alternate-reverse ease-in-out infinite;
   }
 
 }
@@ -165,13 +172,21 @@ p {
 
   0%,
   100% {
-    transform: translate(-1px, 0px);
-    opacity: 1;
+    transform: translate(0px, 0);
+  }
+
+  25% {
+    transform: translate(-9px, 8px);
   }
 
   50% {
     /* opacity: 80%; */
-    transform: translate(1px, 0px);
+    transform: translate(-6px, -5px);
   }
+
+  75% {
+    transform: translate(5px, 13px);
+  }
+
 
 }
