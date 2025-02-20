@@ -39,7 +39,7 @@ function App() {
               className="text-xl sm:text-2xl font-light text-gray-600"
               style={{ fontSize: 'var(--h3-size)' }}
             >
-              February 21 2025
+              February 28 2025
             </h3>
 
           </main>
