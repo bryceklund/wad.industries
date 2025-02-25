@@ -1,0 +1,97 @@
+/* AlbumElement.module.css */
+.albumContainer {
+    /* Add margin to accommodate blur overflow */
+    margin: 8px;
+    padding-top: 24px;
+    max-width: 450px;
+}
+
+.albumLink {
+    display: block;
+    /* Create positioning context for the absolute positioned image */
+    position: relative;
+    overflow: visible;
+}
+
+.albumPicture {
+    display: block;
+    /* This prevents any content cutoff */
+    position: relative;
+}
+
+.albumImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: translateZ(0);
+    /* Force GPU acceleration for smoother transitions */
+    will-change: filter;
+    /* Hint to browser about property that will animate */
+    transition: filter .2s linear;
+}
+
+.albumContainer:hover .albumImage {
+    filter: blur(4px);
+    transition: filter .2s linear;
+}
+
+.albumName {
+    display: none;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    font-size: 48px;
+    width: 100%;
+    height: 100%;
+}
+
+/* For Safari support */
+@supports (-webkit-backdrop-filter: none) {
+    .albumImage {
+        -webkit-transition: -webkit-filter .2s linear;
+    }
+
+    .albumLink:hover .albumImage {
+        -webkit-filter: blur(4px);
+    }
+}
+
+.albumArt:hover {
+    filter: blur(4px);
+    transition: 1s filter linear;
+    -webkit-transition: 1s -webkit-filter linear;
+    -moz-transition: 1s -moz-filter linear;
+    -ms-transition: 1s -ms-filter linear;
+    -o-transition: 1s -o-filter linear;
+}
+
+.albumName:hover {
+    display: none;
+}
+
+/* Safari-specific styles */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+    .albumArt {
+        transform: scale(1);
+
+    }
+}
+
+/* iOS specific adjustments */
+@supports (-webkit-touch-callout: none) {
+    .albumArt {
+        transform: scale(1);
+    }
+}
+
+
+
+
+/* Mobile optimizations */
+@media screen and (max-width: 768px) {
+
+    .albumContainer {
+        max-width: 200px;
+    }
+}
