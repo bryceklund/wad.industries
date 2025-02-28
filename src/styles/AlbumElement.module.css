@@ -4,6 +4,7 @@
     margin: 8px;
     padding-top: 24px;
     max-width: 450px;
+    position: relative;
 }
 
 .albumLink {
@@ -36,13 +37,29 @@
 }
 
 .albumName {
-    display: none;
-    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 4rem;
+    font-weight: bold;
+    color: rgb(49, 49, 49);
     text-align: center;
-    z-index: 1;
-    font-size: 48px;
+    padding: 0.5rem;
+    text-shadow: 0px 0px 10px rgb(247, 36, 247);
+}
+
+.albumNameOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    /* Ensures clicks go through to the link */
 }
 
 /* For Safari support */
@@ -56,7 +73,7 @@
     }
 }
 
-.albumArt:hover {
+.albumPicture:hover {
     filter: blur(4px);
     transition: 1s filter linear;
     -webkit-transition: 1s -webkit-filter linear;
@@ -65,8 +82,13 @@
     -o-transition: 1s -o-filter linear;
 }
 
-.albumName:hover {
-    display: none;
+/* Hover effects */
+.albumLink:hover .albumImage {
+    filter: blur(4px);
+}
+
+.albumLink:hover .albumNameOverlay {
+    opacity: 1;
 }
 
 /* Safari-specific styles */
@@ -93,5 +115,9 @@
 
     .albumContainer {
         max-width: 200px;
+    }
+
+    .albumName {
+        font-size: 1.5rem;
     }
 }

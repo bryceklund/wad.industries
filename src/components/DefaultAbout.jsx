@@ -27,15 +27,8 @@ const DefaultAbout = () => {
             </div>
 
             {/* Second line: "from Portland, OR" */}
-            <div className="mt-1">
+            <div className="">
                 <span className="text-sm text-gray-600">from Portland, OR</span>
-            </div>
-
-            <div className="mt-5 sm:w-auto w-54">
-                <span className="text-sm text-gray-400">our music can be found at the links above</span>
-            </div>
-            <div className="mt-2 w-3xs">
-                <span className="text-sm text-gray-700">or by clicking an album</span>
             </div>
             {/* III */}
             <AlbumElement albumArt={iiiJpg} albumWebp={iiiWebp} albumUrl="https://distrokid.com/hyperfollow/wad9/iii" albumName="III" />
